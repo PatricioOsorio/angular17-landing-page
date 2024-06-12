@@ -30,9 +30,12 @@
               }
             ],
             "styles": [
+              "src/assets/styles/bootstrap.min.personalized.css",
               "src/styles.css"
             ],
-            "scripts": [],
+            "scripts": [
+              "src/assets/scripts/bootstrap.bundle.min.js"
+            ],
             "server": "src/main.server.ts",
             "prerender": true,
             "ssr": {
