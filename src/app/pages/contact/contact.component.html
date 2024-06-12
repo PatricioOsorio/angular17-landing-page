@@ -1,1 +1,51 @@
-<p>contact works!</p>
+<form class="row g-3 needs-validation" [formGroup]="formContact" (submit)="sendForm($event)" novalidate>
+  <div class="mb-3">
+    <label class="form-label" for="exampleFormControlInput1">Email address</label>
+    <input
+      id="exampleFormControlInput1"
+      type="email"
+      class="form-control"
+      [ngClass]="{
+        'is-invalid': hasErrors('email', 'required') || hasErrors('email', 'email'),
+        'is-valid': isValid('email'),
+      }"
+      placeholder="name@example.com"
+      formControlName="email"
+    />
+    @if (hasErrors("email", "required")) {
+      <div class="invalid-feedback">Email requerido</div>
+    }
+    @if (hasErrors("email", "email")) {
+      <div class="invalid-feedback">Email invalido</div>
+    }
+    @if (isValid("email")) {
+      <div class="valid-feedback">¡Se ve bien!</div>
+    }
+  </div>
+
+  <div class="mb-3">
+    <label class="form-label" for="exampleFormControlTextarea1">Example textarea</label>
+    <textarea
+      id="exampleFormControlTextarea1"
+      class="form-control"
+      [ngClass]="{
+        'is-invalid': hasErrors('comments', 'required') || hasErrors('comments', 'minlength'),
+        'is-valid': isValid('comments'),
+      }"
+      rows="5"
+      formControlName="comments"
+    ></textarea>
+    @if (hasErrors("comments", "required")) {
+      <div class="invalid-feedback d-block">Comentario requerido</div>
+    }
+    @if (hasErrors("comments", "minlength")) {
+      <div class="invalid-feedback d-block">Comentario minimo 10 caracteres</div>
+    }
+    @if (isValid("comments")) {
+      <div class="valid-feedback">¡Se ve bien!</div>
+    }
+  </div>
+  <div class="col-12">
+    <button type="submit" class="btn btn-primary">Submit form</button>
+  </div>
+</form>

@@ -13,28 +13,21 @@
   </thead>
   <tbody>
     @for (product of products; track product.id) {
-    <tr>
-      <td>{{ product.title }}</td>
-      <td>{{ product.price }}</td>
-      <td>{{ product.description }}</td>
-      <td>{{ product.category }}</td>
-      <td>
-        <img
-          src="{{ product.image }}"
-          alt="{{ product.title }}"
-          class="img-thumbnail rounded"
-          style="width: 100px"
-        />
-      </td>
-      <td>
-        {{ product.rating.rate }}
-      </td>
-      <td>
-        <button class="btn btn-primary" (click)="navigate(product.id)">
-          Ver
-        </button>
-      </td>
-    </tr>
+      <tr>
+        <td>{{ product.title }}</td>
+        <td>{{ product.price }}</td>
+        <td>{{ product.description }}</td>
+        <td>{{ product.category }}</td>
+        <td>
+          <img alt="{{ product.title }}" class="img-thumbnail rounded" src="{{ product.image }}" style="width: 100px" />
+        </td>
+        <td>
+          {{ product.rating.rate }}
+        </td>
+        <td>
+          <button class="btn btn-primary" (click)="navigate(product.id)">Ver</button>
+        </td>
+      </tr>
     }
   </tbody>
 </table>
